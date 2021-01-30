@@ -6,8 +6,6 @@ input [2:0] shift_by;
 output [7:0] out;
 reg[7:0] q;
 
-integer value;
-integer left,right;
 integer index;
 
 always @(posedge RS)
@@ -19,12 +17,10 @@ end
 always @(posedge CK)
 begin
 
-value=shift_by;
-
 if(p_load==1'b1 )
-begin
+begin	
+
 q=in;
-	
 	if(shift_l_r==1'b0)
 	begin
 		for(index = 0; index <shift_by; index = index + 1) begin
